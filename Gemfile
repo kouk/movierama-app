@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
+gem 'devise', '~> 3.4.1'
 
 group :development, :test do
   gem 'byebug'
