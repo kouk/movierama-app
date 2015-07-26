@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: movierama-app
+
+development:
+  <<: *default
+  database: movierama-dev
+
+test: &test
+  <<: *default
+  database: movierama-test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  
+cucumber:
+  <<: *test
