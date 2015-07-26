@@ -8,7 +8,7 @@ An app for social sharing of movie recommendations.
 
 ## Getting started
 
-Run `scripts/bootstrap.sh`, `bundle install`, `sudo -u postgres createuser movierama-app --createdb`, and `rake db:create`
+Run `scripts/bootstrap.sh`, `bundle install`, `sudo -u postgres createuser movierama-app --createdb`, `rake db:create`, `rake db:migrate`
 
 ## Running on Heroku
 
