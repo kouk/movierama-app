@@ -3,6 +3,6 @@ When(/^I go to the home page$/) do
 end
 
 Then(/^I should be on the page with the title: "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_title arg1
 end
 
