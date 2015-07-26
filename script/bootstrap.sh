@@ -13,7 +13,7 @@ which rvm >/dev/null 2>&1 || install_rvm
 . $HOME/.rvm/scripts/rvm
 rvm gemset create global
 rvm use @global
-gem install bundler
+gem install bundler rerun
 GEMSET=$(cat "$BASEDIR/.ruby-gemset")
 rvm gemset create $GEMSET
 rvm use @$GEMSET
