@@ -3,18 +3,67 @@
 <head>
   <title>Movierama homepage</title>
   <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: [ 'Roboto+Slab:400,700,300:latin,greek', 'Roboto:400,400italic,500,500italic,700,700italic:latin,greek' ]
+      }
+    });
+  </script>
+
+  <noscript>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300|Roboto:400,400italic,500,500italic,700,700italic&subset=latin,greek' rel='stylesheet' type='text/css'>
+  </noscript>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "application" %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<header>
 
-<nav>
-<ul class="hmenu">
-  <%= render 'devise/menu/login_menu' %>
-</ul>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+       <img alt="Movierama (beta)" src="<%= image_path 'logo.png' %>"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <%= render 'devise/menu/login_menu' %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
+</header>
+
+<%= render partial: "movies/messages", flash: flash %>
+
 <%= yield %>
 
 </body>
