@@ -33,4 +33,5 @@ group :test do
   gem 'database_cleaner'
   gem 'rspec-expectations', :require => false
   gem 'shoulda-matchers'
+  gem 'cucumber_factory', :require => false
 end
