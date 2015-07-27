@@ -1,5 +1,7 @@
 # Movierama example app
 
+[![Build Status](https://travis-ci.org/kouk/movierama-app.svg?branch=master)](https://travis-ci.org/kouk/movierama-app)
+
 An app for social sharing of movie recommendations.
 
 ## Dependencies
