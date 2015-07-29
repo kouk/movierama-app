@@ -9,7 +9,8 @@ Feature: Visit homepage (unregistered)
         And I should see a link with the text: "Sign in"
         And I should see a link with the text: "Sign up"
 
+    @javascript
     Scenario: Anonymous tries to submit a movie
         When I go to the home page
         And I click the link with the text: "Submit a movie"
-        Then I should be on the page with the title: "Sign up for Movierama"
+        Then I should see a link with the text: "register first"
