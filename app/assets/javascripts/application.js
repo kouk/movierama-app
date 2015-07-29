@@ -16,4 +16,4 @@
 //= require twitter/typeahead
 //= require handlebars
 //= require_tree ./templates
-//= require_tree .
+//= require_tree ./global
