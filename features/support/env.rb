@@ -5,6 +5,9 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara/poltergeist'
+
+
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -51,8 +54,17 @@ end
 #   end
 #
 
+
+Around do |scenario, block|
+  DatabaseCleaner.cleaning(&block)
+end
+
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+Capybara.javascript_driver = :poltergeist
+
+Capybara.default_wait_time = 5
 

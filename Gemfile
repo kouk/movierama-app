@@ -34,4 +34,5 @@ group :test do
   gem 'rspec-expectations', :require => false
   gem 'shoulda-matchers'
   gem 'cucumber_factory', :require => false
+  gem 'poltergeist'
 end
