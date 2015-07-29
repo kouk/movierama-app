@@ -35,14 +35,14 @@ $(document).ready ->
       movies.initialize()
       $('#movie_title', el).typeahead null,
         name: 'movies'
-        display: 'value',
+        display: 'Title',
         hint: true,
         highlight: true,
         minLength: 1
         templates: {  
           empty: [
             '<div class="empty-message">',
-              'unable to find any Best Picture winners that match the current query',
+              'no suggestions',
             '</div>'
           ].join('\n'),
           suggestion: HandlebarsTemplates['movies/typeahead']
@@ -57,10 +57,12 @@ $(document).ready ->
          .fail (a, b, e) -> 
              console.log e
          .then (a, b, e) ->
-             $('#movie_title', el).val a.Title
+             $(el).typeahead('val', a.Title)
              $('#movie_year', el).val a.Year
+             true
          .always (a, b, e) ->
              $(el).typeahead('close')
+         true
       Handlebars.logger.level = 0
 
     root.movie_callback = (data) ->
