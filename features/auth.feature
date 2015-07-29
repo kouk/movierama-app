@@ -19,7 +19,7 @@ Feature: Visit homepage (unregistered)
         And I click the link with the text: "Sign in"
         Then I should see the login popup
         When I sign in as "me@here.com" with password "foobar123"
-        Then I should see the text: "Signed in as me@here.com"
+        Then I should see the text: "me@here.com"
 
 
     Scenario: User signs in unsuccesfully

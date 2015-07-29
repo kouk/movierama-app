@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<li>Signed in as <a href="#" class="navbar-link"><%= current_user.email %></a></li>
+<li><a href="#" class="navbar-link"><%= current_user.email %></a></li>
 <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 <% else %>
 <li class="dropdown">
