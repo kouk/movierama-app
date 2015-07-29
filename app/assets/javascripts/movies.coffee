@@ -36,7 +36,7 @@ $(document).ready ->
       $(el).typeahead null,
         name: 'movies'
         display: 'value',
-        templates: {
+        templates: {  
           empty: [
             '<div class="empty-message">',
               'unable to find any Best Picture winners that match the current query',
@@ -46,7 +46,16 @@ $(document).ready ->
         }
         source: movies.ttAdapter()
       $(el).bind 'typeahead:select', (ev, suggestion) ->
-          console.log 'Selection: ' + suggestion
+         $.ajax 
+              url: "http://www.omdbapi.com/?plot=short&r=json&i=#{suggestion.imdbID}",
+              dataType: 'jsonp', 
+              jsonp: 'callback',
+              timeout: 2000, 
+              error: (a, b, e) -> 
+                alert e
+                console.log e
+              success: (a, b, e) ->
+                console.log a
       Handlebars.logger.level = 0
 
     root.movie_callback = (data) ->
