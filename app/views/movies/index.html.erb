@@ -1,6 +1,25 @@
-<div class="container">
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "movies.js" %>
+<% end %>
+<div class="container moviecontainer">
 <div class="page-header">
-<div class="submit_movie"><a href="#">Submit a movie</a></div>
+<div class="panel-group" id="submit_movie" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#submit_movie" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Submit a movie</a>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <input id="movietitle" type="text" name="title"/>
+      </div>
+    </div>
+  </div>
+</div>
+
 <h1>Latest movies</h1>
 </div>
 
