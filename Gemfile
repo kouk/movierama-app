@@ -16,6 +16,7 @@ gem 'twitter-typeahead-rails'
 gem 'handlebars_assets'
 gem 'pg'
 gem 'puma'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
