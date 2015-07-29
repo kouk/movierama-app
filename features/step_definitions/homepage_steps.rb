@@ -9,3 +9,7 @@ end
 And(/^I should see a link with the text: "(.*?)"$/) do |arg1|
   expect(page).to have_link(arg1)
 end
+
+Then /^I should see an input field named "(.*?)"$/ do |arg1|
+ page.find_field(arg1).visible?
+end
