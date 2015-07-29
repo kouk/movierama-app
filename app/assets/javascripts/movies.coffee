@@ -1,6 +1,6 @@
 root = exports ? this
 $(document).ready ->
-  $('.moviecontainer #submit_movie .panel-body #movietitle').each (i, el) ->
+  $('.moviecontainer #submit_movie .panel-body').each (i, el) ->
       movies = undefined
       movies = new Bloodhound(
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name')
@@ -33,9 +33,12 @@ $(document).ready ->
             return retval
         )
       movies.initialize()
-      $(el).typeahead null,
+      $('#movie_title', el).typeahead null,
         name: 'movies'
         display: 'value',
+        hint: true,
+        highlight: true,
+        minLength: 1
         templates: {  
           empty: [
             '<div class="empty-message">',
@@ -47,15 +50,17 @@ $(document).ready ->
         source: movies.ttAdapter()
       $(el).bind 'typeahead:select', (ev, suggestion) ->
          $.ajax 
-              url: "http://www.omdbapi.com/?plot=short&r=json&i=#{suggestion.imdbID}",
-              dataType: 'jsonp', 
-              jsonp: 'callback',
-              timeout: 2000, 
-              error: (a, b, e) -> 
-                alert e
-                console.log e
-              success: (a, b, e) ->
-                console.log a
+            url: "http://www.omdbapi.com/?plot=short&r=json&i=#{suggestion.imdbID}",
+            dataType: 'jsonp', 
+            jsonp: 'callback',
+            timeout: 2000, 
+         .fail (a, b, e) -> 
+             console.log e
+         .then (a, b, e) ->
+             $('#movie_title', el).val a.Title
+             $('#movie_year', el).val a.Year
+         .always (a, b, e) ->
+             $(el).typeahead('close')
       Handlebars.logger.level = 0
 
     root.movie_callback = (data) ->
