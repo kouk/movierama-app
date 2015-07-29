@@ -8,4 +8,10 @@
     border: 1px solid blue;
 
     dd { color: blue; }
+
+}
+
+.tt-dropdown-menu {
+  max-height: 250px;
+  overflow-y: auto;
 }
