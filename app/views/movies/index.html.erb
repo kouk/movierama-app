@@ -42,7 +42,4 @@ If you already have an account, <%= link_to('sign in here', new_user_session_pat
 </div>
 
 <h1>Latest movies</h1>
-</div>
-
-<p>Find me in app/views/movies/index.html.erb</p>
-</div>
+<%= render partial: "movie", collection: @movies %>
